@@ -1,10 +1,12 @@
 <template>
-  <nav class="flex text-black absolute bg-white bottom-20 left-24 rounded-sm">
+  <nav
+    class="flex text-black absolute bg-white xl:bottom-20 xl:left-24 xl:border-0 border-t border-neutral-400 xl:w-auto w-full bottom-0 left-0 rounded-sm"
+  >
     <a href="/">
       <img
         src="../assets/logo.svg"
         alt="Art Institute Chicago"
-        class="h-full w-32 object-cover rounded-l-sm"
+        class="h-full xl:w-32 w-24 object-cover rounded-l-sm"
       />
     </a>
 
