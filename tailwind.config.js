@@ -2,7 +2,12 @@
 export default {
   content: ["./index.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        sans: [" calluna-sans", "sans-serif"],
+        display: ["linotype-sabon", "serif"],
+      },
+    },
   },
   plugins: [],
 };
