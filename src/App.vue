@@ -4,7 +4,7 @@ import { RouterLink, RouterView } from "vue-router";
 
 <template>
   <div class="flex relative overflow-hidden">
-    <div>
+    <div class="overflow-hidden">
       <RouterView />
     </div>
   </div>

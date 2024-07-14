@@ -4,7 +4,7 @@ import Navigation from "../components/Navigation.vue";
 </script>
 
 <template>
-  <main>
+  <main class="overflow-hidden">
     <Navigation />
     <Gallery />
   </main>
