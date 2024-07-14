@@ -26,14 +26,14 @@
     </div>
     <div class="flex">
       <div
-        class="w-full bg-[#A6243B] justify-between mr-8 rounded-sm xl:mr-32 flex shadow-lg"
+        class="w-full bg-white border-neutral-200 border justify-between mr-8 rounded-sm xl:mr-32 flex shadow-lg"
       >
         <a
           class="my-auto mx-auto font-semibold text-sm lg:text-lg hover:bg-neutral-200 p-6 object-center xl:size-24 size-24 text-center flex content-center transition-all"
           href="/about"
         >
           <img
-            src="../assets/search.svg"
+            src="../assets/search-black.svg"
             alt="Art Institute Chicago"
             class="h-5 mx-auto my-auto object-contain rounded-l-sm"
         /></a>
@@ -44,7 +44,7 @@
   <nav
     class="flex justify-between lg:hidden text-black absolute xl:bottom-20 xl:left-24 xl:border-0 w-full top-8 left-4 rounded-sm"
   >
-    <div class="bg-white flex shadow-lg">
+    <div class="bg-white flex">
       <a href="/">
         <img
           src="../assets/logo.svg"
@@ -67,15 +67,15 @@
     </div>
     <div class="flex w-28">
       <div
-        class="w-full bg-[#A6243B] justify-between mr-8 rounded-sm xl:mr-32 flex shadow-lg"
+        class="w-full bg-white border border-l-0 md:border-l border-neutral-200 justify-between mr-8 rounded-sm xl:mr-32 flex"
       >
         <a
           class="my-auto mx-auto font-semibold text-sm lg:text-lg hover:bg-neutral-200 object-center w-full text-center flex content-center transition-all"
           href="/about"
         >
           <img
-            src="../assets/search.svg"
-            alt="Art Institute Chicago"
+            src="../assets/search-black.svg"
+            alt="Search"
             class="h-4 mx-auto my-auto object-contain rounded-l-sm"
         /></a>
       </div>
