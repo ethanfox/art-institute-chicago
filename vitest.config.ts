@@ -7,6 +7,7 @@ import path from "path";
 export default mergeConfig(
   viteConfig,
   defineConfig({
+    base: "/art-institute-chicago/",
     plugins: [vue()],
     resolve: {
       alias: {
