@@ -16,7 +16,7 @@ jobs:
       - name: Install and Build
         run: |
           bun install
-          bun run build
+          bun run build-only
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
