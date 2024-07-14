@@ -1,5 +1,5 @@
 <template>
-  <div class="w-screen h-screen overflow-y-scroll bg-neutral-100">
+  <div class="w-screen h-svh overflow-y-scroll bg-neutral-100">
     <div v-if="loading && artworks.length === 0">Loading...</div>
     <div v-else-if="error">{{ error }}</div>
     <div v-else class="masonry-container p-8">
