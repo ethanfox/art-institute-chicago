@@ -1,45 +1,23 @@
-# art-institute-chicago
+# 🖼️ Art-Institute-Chicago
 
-This template should help get you started developing with Vue 3 in Vite.
+## [Visit Working Site](https://ethanfox.github.io/art-institute-chicago/)
+The goal of this project is to provide an immersive way to browse the works housed at the Art Institute Chicago.
 
-## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## Technologies
+- The project makes use of the  [Art Institute of Chicago API](https://api.artic.edu/docs/).
+- Vue.js
 
-## Type Support for `.vue` Imports in TS
+## Roadmap
+- [x] Connect to API and load images
+- [ ] Loading animation when user first visits site
+- [ ] Load-in anmiation for art
+- [ ] Detail view of art
+- [ ] Search & Filter
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## To get started locally
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-bun install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-bun dev
-```
-
-### Type-Check, Compile and Minify for Production
-
-```sh
-bun build
-```
-
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
-bun test:unit
-```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-bun lint
-```
+1. Clone project `git clone https://github.com/ethanfox/art-institute-chicago.git`
+2. Navigate into the Project Directory `cd art-institute-chicago`
+3. Install Dependencies `bun install`
+4. Run the Development Server `bun run dev`
