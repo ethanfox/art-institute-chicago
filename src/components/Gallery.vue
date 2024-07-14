@@ -2,7 +2,7 @@
   <div class="w-screen h-screen overflow-y-scroll bg-neutral-100">
     <div v-if="loading && artworks.length === 0">Loading...</div>
     <div v-else-if="error">{{ error }}</div>
-    <div v-else class="masonry-container">
+    <div v-else class="masonry-container p-8">
       <div v-for="artwork in artworks" :key="artwork.id" class="masonry-item">
         <img
           :src="artwork.image_url"
