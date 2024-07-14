@@ -42,7 +42,7 @@
   </nav>
   <!-- Mobile Navigation -->
   <nav
-    class="flex justify-between lg:hidden text-black absolute xl:bottom-20 xl:left-24 xl:border-0 w-full top-8 left-4 rounded-sm"
+    class="flex justify-between lg:hidden text-black absolute xl:bottom-20 xl:left-24 xl:border-0 w-full top-4 left-4 rounded-sm"
   >
     <div class="bg-white flex">
       <a href="/">
