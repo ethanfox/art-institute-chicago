@@ -3,21 +3,18 @@ name: Deploy Vue App to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main # Set this to your default branch
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎️
+      - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Install and Build 🔧
-        run: |
-          npm install
-          npm run build
-
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Deploy
+        uses: xRealNeon/VuePagesAction@1.0.1
         with:
-          folder: dist
+          username: "ethanfox"
+          reponame: "art-institue-chicago"
+          token: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically provided
