@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="flex text-black absolute bg-white xl:bottom-20 xl:left-24 xl:border-0 xl:w-auto w-auto bottom-20 left-4 rounded-sm"
+    class="flex text-black absolute bg-white xl:bottom-20 xl:left-24 xl:border-0 xl:w-auto w-auto bottom-24 left-4 rounded-sm"
   >
     <a href="/">
       <img
