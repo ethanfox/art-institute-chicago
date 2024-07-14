@@ -31,13 +31,13 @@
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1100px) {
   .masonry-container {
     column-count: 2;
   }
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
   .masonry-container {
     column-count: 1;
   }
@@ -53,6 +53,17 @@
   width: 100%;
 }
 
+@media (max-width: 1600px) {
+  .masonry-item {
+    padding: 4rem;
+  }
+}
+
+@media (max-width: 800px) {
+  .masonry-item {
+    padding: 2rem;
+  }
+}
 .masonry-item img {
   width: 100%;
   height: auto;
