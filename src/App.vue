@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script>
 import { RouterLink, RouterView } from "vue-router";
 import TheWelcome from "./components/TheWelcome.vue";
 import Navbar from "./components/Navbar.vue";
