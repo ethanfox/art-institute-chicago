@@ -11,6 +11,6 @@ jobs:
       - id: Build-Deploy-Vue
         uses: thefrustrateddev/vue-deploy-github-pages@v1.0.0
         with:
-          username: "{{ethanfox}}"
-          reponame: "{{art-institute-chicago}}"
+          username: "ethanfox"
+          reponame: "art-institute-chicago"
           token: ${{ secrets.GITHUB_TOKEN }} # no need to change this line this is used to create the branch in your application repository
