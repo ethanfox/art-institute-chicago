@@ -1,7 +1,5 @@
 <script>
 import { RouterLink, RouterView } from "vue-router";
-import TheWelcome from "./components/TheWelcome.vue";
-import Navbar from "./components/Navbar.vue";
 </script>
 
 <template>
@@ -9,6 +7,5 @@ import Navbar from "./components/Navbar.vue";
     <div>
       <RouterView />
     </div>
-    <Navbar />
   </div>
 </template>
