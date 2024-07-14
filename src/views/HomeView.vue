@@ -1,9 +1,9 @@
 <script setup lang="ts">
-// import TheWelcome from "../components/TheWelcome.vue";
+import Gallery from "../components/Gallery.vue";
 </script>
 
 <template>
   <main>
-    <h1>Art Gallery</h1>
+    <Gallery />
   </main>
 </template>
