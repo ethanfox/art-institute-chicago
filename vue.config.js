@@ -1,8 +1,3 @@
 module.exports = {
-  publicPath: process.env.NODE_ENV === "production" ? "/vue/dist/" : "/",
+  publicPath: "/${{ repoName }}/",
 };
-
-const router = createRouter({
-  history: createWebHistory("/vue/dist"),
-  routes,
-});
