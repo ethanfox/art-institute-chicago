@@ -17,7 +17,22 @@ The goal of this project is to provide an immersive way to browse the works hous
 
 ## To get started locally
 
-1. Clone project `git clone https://github.com/ethanfox/art-institute-chicago.git`
-2. Navigate into the Project Directory `cd art-institute-chicago`
-3. Install Dependencies `bun install`
-4. Run the Development Server `bun run dev`
+### 1. Clone project <br>
+```
+git clone https://github.com/ethanfox/art-institute-chicago.git
+```
+
+### 2. Navigate into the Project Directory  
+```
+cd art-institute-chicago
+```
+
+### 3. Install Dependencies  <br>
+```
+bun install
+```
+
+### 4. Run the Development Server  <br>
+```
+bun run dev
+```
