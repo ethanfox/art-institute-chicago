@@ -1,7 +1,7 @@
 <template>
   <!-- Desktop Navigation -->
   <nav
-    class="hidden lg:flex justify-between text-black absolute xl:bottom-20 xl:left-24 xl:border-0 xl:w-full w-full bottom-16 left-4 rounded-sm"
+    class="hidden z-10 lg:flex justify-between text-black fixed xl:bottom-20 xl:left-24 xl:border-0 xl:w-full w-full bottom-16 left-4 rounded-sm"
   >
     <div class="bg-white flex shadow-lg">
       <a href="/">
