@@ -5,9 +5,12 @@ The goal of this project is to provide an immersive way to browse the works hous
 
 
 ## Technologies
-- The project makes use of the  [Art Institute of Chicago API](https://api.artic.edu/docs/).
+The project makes use of:
+- [Art Institute of Chicago API](https://api.artic.edu/docs/).
 - Vue.js
+- Tailwind.css
 
+  
 ## Roadmap
 - [x] Connect to API and load images
 - [x] Loading animation when user first visits site
