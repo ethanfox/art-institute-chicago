@@ -10,8 +10,8 @@ The goal of this project is to provide an immersive way to browse the works hous
 
 ## Roadmap
 - [x] Connect to API and load images
-- [ ] Loading animation when user first visits site
-- [ ] Load-in animation for art
+- [x] Loading animation when user first visits site
+- [x] Load-in animation for art
 - [ ] Detail view of art
 - [ ] Search & Filter
 
