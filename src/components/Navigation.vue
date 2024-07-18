@@ -57,9 +57,12 @@
       >
         <a
           class="flex-p-8 my-auto mx-auto font-semibold text-sm lg:text-lg hover:bg-neutral-200 px-6 object-center w-full h-full text-center flex content-center transition-all"
-          href="/visit"
-          ><span class="mx-auto my-auto">Visit</span></a
+          href="https://www.artic.edu/visit"
+          target="_blank"
+          rel="noopener noreferrer"
         >
+          <span class="mx-auto my-auto">Visit</span>
+        </a>
         <a
           class="flex-p-8 my-auto mx-auto font-semibold text-sm lg:text-lg px-4 object-center w-full h-full text-center flex content-center"
           href="/about"
