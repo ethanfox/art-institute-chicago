@@ -42,9 +42,9 @@
   </nav>
   <!-- Mobile Navigation -->
   <nav
-    class="flex justify-between lg:hidden text-black absolute xl:bottom-20 xl:left-24 xl:border-0 w-full top-4 left-4 rounded-sm"
+    class="flex z-10 justify-between lg:hidden text-black absolute w-full top-4 px-4 rounded-sm"
   >
-    <div class="bg-white flex">
+    <div class="bg-white flex w-full shadow-lg">
       <a href="/">
         <img
           src="../assets/logo.svg"
@@ -69,21 +69,19 @@
           ><span class="mx-auto my-auto">About</span></a
         >
       </div>
-    </div>
-    <div class="flex w-24 mr-8">
-      <div
-        class="w-full bg-white hover:bg-neutral-200 transition-all flex-none border border-l-0 md:border-l border-neutral-200 justify-between mr-8 rounded-sm xl:mr-32 flex"
+
+      <a
+        class="my-auto mx-auto font-semibold border-l-0 border border-neutral-200 h-full text-sm lg:text-lg object-center rounded-r-sm w-32 text-center flex content-center"
+        href="/about"
       >
-        <a
-          class="my-auto mx-auto font-semibold text-sm lg:text-lg object-center w-full text-center flex content-center"
-          href="/about"
-        >
-          <img
-            src="../assets/search-black.svg"
-            alt="Search"
-            class="h-4 mx-auto my-auto object-contain rounded-l-sm"
-        /></a>
-      </div>
+        <img
+          src="../assets/search-black.svg"
+          alt="Search"
+          class="h-4 mx-auto my-auto object-contain rounded-l-sm"
+      /></a>
     </div>
+    <!-- <div class="flex w-24 mr-8">
+      
+    </div> -->
   </nav>
 </template>
