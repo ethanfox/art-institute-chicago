@@ -170,7 +170,7 @@ export default {
 }
 .list-enter-from,
 .list-leave-to {
-  transition-delay: 10s;
+  transition-delay: 2s;
   opacity: 0;
   transform: translateY(30px);
 }

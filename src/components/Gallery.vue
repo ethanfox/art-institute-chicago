@@ -73,6 +73,8 @@ export default {
 @media (max-width: 1600px) {
   .masonry-item {
     padding: 4rem;
+    animation: fadeSlideUp 1.5s forwards;
+    animation-delay: 6s;
   }
 }
 
@@ -80,7 +82,7 @@ export default {
   .masonry-item {
     padding: 2rem;
     animation: fadeSlideUp 1.5s forwards;
-    animation-delay: 6s;
+    animation-delay: 0s;
     opacity: 0; /* Ensure initial state is set correctly */
   }
 }
