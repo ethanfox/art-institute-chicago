@@ -74,7 +74,7 @@ export default {
   .masonry-item {
     padding: 4rem;
     animation: fadeSlideUp 1.5s forwards;
-    animation-delay: 6s;
+    animation-delay: 0s;
   }
 }
 
