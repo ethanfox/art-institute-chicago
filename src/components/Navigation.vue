@@ -3,7 +3,7 @@
   <nav
     class="hidden z-20 lg:flex justify-between text-black fixed xl:bottom-20 xl:left-24 xl:border-0 xl:w-full w-full bottom-16 left-4 rounded-sm"
   >
-    <div class="bg-white flex shadow-lg">
+    <div class="bg-white flex shadow-lg rounded-sm">
       <a href="/">
         <img
           src="../assets/logo.svg"
