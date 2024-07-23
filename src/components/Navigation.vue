@@ -1,7 +1,7 @@
 <template>
   <!-- Desktop Navigation -->
   <nav
-    class="hidden z-10 lg:flex justify-between text-black fixed xl:bottom-20 xl:left-24 xl:border-0 xl:w-full w-full bottom-16 left-4 rounded-sm"
+    class="hidden z-20 lg:flex justify-between text-black fixed xl:bottom-20 xl:left-24 xl:border-0 xl:w-full w-full bottom-16 left-4 rounded-sm"
   >
     <div class="bg-white flex shadow-lg">
       <a href="/">
@@ -26,17 +26,19 @@
     </div>
     <div class="flex">
       <div
-        class="w-full bg-white border-neutral-200 border justify-between mr-8 rounded-sm xl:mr-32 flex shadow-lg"
+        class="w-full bg-white border-neutral-200 hover:bg-neutral-200 transition-all border justify-between mr-8 rounded-sm xl:mr-32 flex shadow-lg"
       >
-        <a
-          class="my-auto mx-auto font-semibold text-sm lg:text-lg hover:bg-neutral-200 p-6 object-center xl:size-24 size-24 text-center flex content-center transition-all"
+        <button
+          @click="buttonClicked"
+          class="my-auto mx-auto font-semibold text-sm lg:text-lg p-6 object-center xl:size-24 size-24 text-center flex content-center"
           href="/about"
         >
           <img
             src="../assets/search-black.svg"
             alt="Art Institute Chicago"
             class="h-5 mx-auto my-auto object-contain rounded-l-sm"
-        /></a>
+          />
+        </button>
       </div>
     </div>
   </nav>
@@ -70,7 +72,8 @@
         >
       </div>
 
-      <a
+      <button
+        @click="buttonClicked"
         class="my-auto mx-auto font-semibold border-l-0 border border-neutral-200 h-full text-sm lg:text-lg object-center rounded-r-sm w-32 text-center flex content-center"
         href="/about"
       >
@@ -78,10 +81,21 @@
           src="../assets/search-black.svg"
           alt="Search"
           class="h-4 mx-auto my-auto object-contain rounded-l-sm"
-      /></a>
+        />
+      </button>
     </div>
     <!-- <div class="flex w-24 mr-8">
       
     </div> -->
   </nav>
 </template>
+
+<script>
+export default {
+  methods: {
+    buttonClicked() {
+      this.$emit("navigation-button-clicked");
+    },
+  },
+};
+</script>

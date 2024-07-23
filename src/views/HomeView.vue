@@ -25,10 +25,13 @@
           </div>
         </div>
       </div>
-      <div v-else key="loaded">
-        <Navigation />
+      <div v-else key="loaded" class="relative">
+        <Navigation
+          @navigation-button-clicked="showSearchOverlay = !showSearchOverlay"
+        />
 
         <Gallery :artworks="artworks" @load-more="loadMoreArtworks" />
+        <SearchOverlay :showSearchOverlay="showSearchOverlay" />
       </div>
     </transition>
   </div>
@@ -36,12 +39,18 @@
 
 <script>
 import Navigation from "../components/Navigation.vue";
+import SearchOverlay from "../components/SearchOverlay.vue";
 import Gallery from "../components/Gallery.vue";
 import axios from "axios";
 import { ref, onMounted, computed } from "vue";
 
 export default {
-  components: { Navigation, Gallery },
+  components: { Navigation, Gallery, SearchOverlay },
+  data() {
+    return {
+      showSearchOverlay: false,
+    };
+  },
   setup() {
     const number = ref(1);
     const loading = ref(true);

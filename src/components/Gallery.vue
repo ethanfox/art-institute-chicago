@@ -68,6 +68,7 @@ export default {
   margin-bottom: 3rem;
   display: inline-block;
   width: 100%;
+  z-index: 1;
 }
 
 @media (max-width: 1600px) {
