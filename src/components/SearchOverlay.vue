@@ -90,7 +90,8 @@ export default {
                   ],
                 },
               },
-              fields: "id,title,image_id,image_url,aic_start_at,aic_end_at",
+              fields:
+                "id,title,image_id,image_url,aic_start_at,aic_end_at,gallery_title",
               limit: 100,
               page: exhibitionPage.value,
             },

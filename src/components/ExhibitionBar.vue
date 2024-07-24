@@ -1,31 +1,50 @@
 <template>
   <!-- EXHIBITIONS -->
   <div
-    class="flex flex-col gap-4 pt-2 pb-4 px-10 bg-white rounded-full glass-shadow border border-neutral-100 w-full"
+    class="flex flex-col gap-0 pt-4 pb-4 px-10 bg-neutral-950/80 rounded-md glass-shadow w-full"
   >
-    <p class="text-sm text-neutral-950 font-semibold">Current Exhibitions</p>
-    <Carousel class="p-0" v-bind="settings" :breakpoints="breakpoints">
+    <p class="text-2xl text-white">Current Exhibitions</p>
+    <div></div>
+    <Carousel
+      :autoplay="3000"
+      :wrap-around="true"
+      class="p-4"
+      v-bind="settings"
+      :breakpoints="breakpoints"
+    >
       <Slide v-for="exhibition in exhibitions" :key="exhibition.id">
         <div
-          class="carousel__item bg-white overflow-hidden border glass-shadow rounded-full"
+          class="carousel__item bg-neutral-50/10 mx-2 backdrop-blur-md overflow-hidden glass-shadow rounded-sm"
         >
           <div class="flex gap-4">
             <img
-              class="size-12 rounded-full glass-shadow"
+              class="h-36 w-48 rounded-sm glass-shadow object-cover"
               :src="exhibition.image_url"
               :alt="exhibition.title"
               v-if="exhibition.image_url"
             />
-            <h1 class="font-bold text-sm line-clamp-2 text-left">
-              {{ exhibition.title }}
-            </h1>
+            <div class="flex flex-col h-36 py-2 justify-between gap-2">
+              <div>
+                <h1 class="text-lg text-white line-clamp-2 text-left">
+                  {{ exhibition.title }}
+                </h1>
+                <h1 class="text-lg text-neutral-400 line-clamp-2 text-left">
+                  {{ exhibition.gallery_title }}
+                </h1>
+              </div>
+
+              <h3 class="text-neutral-400 text-left">
+                {{ formatDate(exhibition.aic_start_at) }} -
+                {{ formatDate(exhibition.aic_end_at) }}
+              </h3>
+            </div>
           </div>
         </div>
       </Slide>
 
-      <template #addons>
+      <!-- <template #addons>
         <Navigation />
-      </template>
+      </template> -->
     </Carousel>
   </div>
   <!-- EXHIBITIONS -->
@@ -43,6 +62,15 @@ export default defineComponent({
     Slide,
     Navigation,
   },
+  methods: {
+    formatDate(dateString) {
+      const date = new Date(dateString);
+      const month = ("0" + (date.getMonth() + 1)).slice(-2);
+      const day = ("0" + date.getDate()).slice(-2);
+      const year = date.getFullYear();
+      return `${month}/${day}/${year}`;
+    },
+  },
   data: () => ({
     // carousel settings
     settings: {
@@ -59,7 +87,7 @@ export default defineComponent({
       },
       // 1024 and up
       1024: {
-        itemsToShow: 5,
+        itemsToShow: 3,
         snapAlign: "start",
       },
     },
