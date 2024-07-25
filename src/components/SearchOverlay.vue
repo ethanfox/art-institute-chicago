@@ -2,7 +2,7 @@
   <transition name="search-fade">
     <div v-if="showSearchOverlay" class="search-overlay">
       <div
-        class="bg-neutral-950/50 backdrop fixed inset-0 flex flex-col gap-8 items-center justify-center z-[10] px-16 lg:px-32 xl:px-96"
+        class="bg-neutral-950/50 backdrop fixed inset-0 flex flex-col gap-8 items-center justify-center z-[10] sm:px-8 px-8 md:px-16 lg:px-32 xl:px-64"
       >
         <!-- SEARCH -->
         <form

@@ -1,7 +1,7 @@
 <template>
   <!-- EXHIBITIONS -->
   <div
-    class="flex flex-col gap-0 pt-4 pb-4 px-10 bg-neutral-950/80 rounded-md glass-shadow w-full"
+    class="flex flex-col gap-0 pt-4 pb-4 px-4 lg:px-10 bg-neutral-950/80 rounded-md glass-shadow w-full"
   >
     <p class="text-2xl text-white">Current Exhibitions</p>
     <div></div>
@@ -14,17 +14,17 @@
     >
       <Slide v-for="exhibition in exhibitions" :key="exhibition.id">
         <div
-          class="carousel__item bg-neutral-50/10 mx-2 backdrop-blur-md overflow-hidden glass-shadow rounded-sm"
+          class="carousel__item bg-neutral-50/10 mx-2 backdrop-blur-md flex w-full glass-shadow rounded-sm"
         >
-          <div class="flex gap-4">
+          <div class="flex 2xl:flex-row w-full flex-col gap-4">
             <img
-              class="h-36 w-48 rounded-sm glass-shadow object-cover"
+              class="h-36 w-full rounded-sm glass-shadow object-cover"
               :src="exhibition.image_url"
               :alt="exhibition.title"
               v-if="exhibition.image_url"
             />
-            <div class="flex flex-col h-36 py-2 justify-between gap-2">
-              <div>
+            <div class="flex flex-col w-full h-36 p-2 justify-between gap-2">
+              <div class="flex flex-col">
                 <h1 class="text-lg text-white line-clamp-2 text-left">
                   {{ exhibition.title }}
                 </h1>
@@ -74,19 +74,29 @@ export default defineComponent({
   data: () => ({
     // carousel settings
     settings: {
-      itemsToShow: 1,
+      itemsToShow: 1.5,
       snapAlign: "center",
     },
     // breakpoints are mobile first
     // any settings not specified will fallback to the carousel settings
     breakpoints: {
       // 700px and up
-      700: {
-        itemsToShow: 3.5,
+      640: {
+        itemsToShow: 1.5,
+        snapAlign: "center",
+      },
+
+      768: {
+        itemsToShow: 2,
         snapAlign: "center",
       },
       // 1024 and up
-      1024: {
+      1200: {
+        itemsToShow: 2,
+        snapAlign: "start",
+      },
+
+      1280: {
         itemsToShow: 3,
         snapAlign: "start",
       },
