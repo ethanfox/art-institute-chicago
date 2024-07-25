@@ -34,7 +34,7 @@
             </p>
           </div>
           <div class="flex flex-col gap-4 w-full px-2 md:px-8">
-            <p class="text-lg font-semibold text-neutral-950">
+            <p class="text-lg text-left font-semibold text-neutral-950">
               To learn more about me:
             </p>
             <div class="flex flex-col lg:flex-row gap-4">
@@ -42,12 +42,12 @@
                 <img
                   src="../assets/user.svg"
                   alt="Search"
-                  class="h-8 mx-auto my-auto object-contain rounded-l-sm"
+                  class="size-8 mx-auto my-auto object-contain rounded-l-sm"
                 />
                 <a
                   href="https://www.ethanjamesfox.com"
                   target="_blank"
-                  class="text-lg text-[#b50938] my-auto hover:underline"
+                  class="text-lg w-full text-[#b50938] my-auto hover:underline"
                   >Visit my website</a
                 >
               </div>
@@ -60,7 +60,7 @@
                 <a
                   href="https://github.com/ethanfox"
                   target="_blank"
-                  class="text-lg text-[#b50938] my-auto hover:underline"
+                  class="text-lg w-full text-[#b50938] my-auto hover:underline"
                   >View Github Profile</a
                 >
               </div>
@@ -73,7 +73,7 @@
                 <a
                   href="https://www.linkedin.com/in/ethanjamesfox/"
                   target="_blank"
-                  class="text-lg text-[#b50938] my-auto hover:underline"
+                  class="text-lg w-full text-[#b50938] my-auto hover:underline"
                   >Connect on LinkedIn</a
                 >
               </div>

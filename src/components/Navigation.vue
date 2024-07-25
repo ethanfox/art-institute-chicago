@@ -57,27 +57,26 @@
           class="h-full w-32 object-cover rounded-l-sm"
         />
       </a>
-      <div
-        class="w-full justify-between flex border border-neutral-200 hover:bg-neutral-200 transition-all"
-      >
+      <div class="w-full justify-between flex border border-neutral-200">
         <a
           class="flex-p-8 my-auto mx-auto font-semibold text-sm lg:text-lg hover:bg-neutral-200 px-6 object-center w-full h-full text-center flex content-center transition-all"
           href="https://www.artic.edu/visit"
           target="_blank"
-          rel="noopener noreferrer"
         >
           <span class="mx-auto my-auto">Visit</span>
         </a>
-        <a
-          class="flex-p-8 my-auto mx-auto font-semibold text-sm lg:text-lg px-4 object-center w-full h-full text-center flex content-center"
+        <button
+          @click="aboutButtonClicked"
+          class="flex-p-8 my-auto mx-auto font-semibold text-sm lg:text-lg px-4 object-center w-full h-full text-center flex content-center hover:bg-neutral-200 transition-all"
           href="/about"
-          ><span class="mx-auto my-auto">About</span></a
         >
+          <span class="mx-auto my-auto">About</span>
+        </button>
       </div>
 
       <button
-        @click="buttonClicked"
-        class="my-auto mx-auto font-semibold border-l-0 border border-neutral-200 h-full text-sm lg:text-lg object-center rounded-r-sm w-32 text-center flex content-center"
+        @click="searchButtonClicked"
+        class="my-auto mx-auto font-semibold border-l-0 border border-neutral-200 h-full text-sm lg:text-lg object-center rounded-r-sm w-32 text-center flex content-center hover:bg-neutral-200 transition-all"
         href="/about"
       >
         <img
