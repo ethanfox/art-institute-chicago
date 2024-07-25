@@ -47,7 +47,7 @@
   </nav>
   <!-- Mobile Navigation -->
   <nav
-    class="flex z-10 justify-between lg:hidden text-black absolute w-full top-4 px-4 rounded-sm"
+    class="flex z-10 justify-between lg:hidden text-black fixed w-full top-4 px-4 rounded-sm"
   >
     <div class="bg-white flex w-full shadow-lg">
       <a href="/">
@@ -86,9 +86,6 @@
         />
       </button>
     </div>
-    <!-- <div class="flex w-24 mr-8">
-      
-    </div> -->
   </nav>
 </template>
 
