@@ -3,7 +3,7 @@
   <nav
     class="hidden z-20 lg:flex justify-between text-black fixed xl:bottom-20 xl:left-24 xl:border-0 xl:w-full w-full bottom-16 left-4 rounded-sm"
   >
-    <div class="bg-white flex shadow-lg">
+    <div class="bg-white flex shadow-lg rounded-sm">
       <a href="/">
         <img
           src="../assets/logo.svg"
@@ -13,15 +13,18 @@
       </a>
       <div class="w-full justify-between flex border border-neutral-200">
         <a
+          target="_blank"
           class="flex-p-8 my-auto mx-auto font-semibold text-sm lg:text-lg hover:bg-neutral-200 px-6 lg:px-16 object-center w-full h-full text-center flex content-center transition-all"
-          href="/visit"
+          href="https://www.artic.edu/visit"
           ><span class="mx-auto my-auto">Visit</span></a
         >
-        <a
+        <button
+          @click="aboutButtonClicked"
           class="flex-p-8 my-auto mx-auto font-semibold text-sm lg:text-lg hover:bg-neutral-200 px-6 lg:px-16 object-center w-full h-full text-center flex content-center transition-all"
           href="/about"
-          ><span class="mx-auto my-auto">About</span></a
         >
+          <span class="mx-auto my-auto">About</span>
+        </button>
       </div>
     </div>
     <div class="flex">
@@ -29,7 +32,7 @@
         class="w-full bg-white border-neutral-200 hover:bg-neutral-200 transition-all border justify-between mr-8 rounded-sm xl:mr-32 flex shadow-lg"
       >
         <button
-          @click="buttonClicked"
+          @click="searchButtonClicked"
           class="my-auto mx-auto font-semibold text-sm lg:text-lg p-6 object-center xl:size-24 size-24 text-center flex content-center"
           href="/about"
         >
@@ -93,8 +96,11 @@
 <script>
 export default {
   methods: {
-    buttonClicked() {
+    searchButtonClicked() {
       this.$emit("navigation-button-clicked");
+    },
+    aboutButtonClicked() {
+      this.$emit("about-button-clicked");
     },
   },
 };

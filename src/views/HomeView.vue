@@ -28,16 +28,22 @@
       <div v-else key="loaded" class="relative">
         <Navigation
           @navigation-button-clicked="showSearchOverlay = !showSearchOverlay"
+          @about-button-clicked="showAboutOverlay = !showAboutOverlay"
         />
 
         <Gallery :artworks="artworks" @load-more="loadMoreArtworks" />
         <SearchOverlay :showSearchOverlay="showSearchOverlay" />
+        <AboutOverlay
+          @close-button-clicked="showAboutOverlay = !showAboutOverlay"
+          :showAboutOverlay="showAboutOverlay"
+        />
       </div>
     </transition>
   </div>
 </template>
 
 <script>
+import AboutOverlay from "../components/AboutOverlay.vue";
 import Navigation from "../components/Navigation.vue";
 import SearchOverlay from "../components/SearchOverlay.vue";
 import Gallery from "../components/Gallery.vue";
@@ -45,10 +51,11 @@ import axios from "axios";
 import { ref, onMounted, computed } from "vue";
 
 export default {
-  components: { Navigation, Gallery, SearchOverlay },
+  components: { Navigation, Gallery, SearchOverlay, AboutOverlay },
   data() {
     return {
       showSearchOverlay: false,
+      showAboutOverlay: false,
     };
   },
   setup() {
