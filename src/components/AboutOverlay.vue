@@ -6,23 +6,23 @@
       >
         <!-- SEARCH -->
         <div
-          class="flex flex-col gap-20 px-4 py-8 lg:p-8 bg-white mt-32 lg:mt-0 rounded-sm glass-shadow border border-neutral-100 w-full"
+          class="flex flex-col gap-20 px-4 py-8 lg:p-8 relative bg-white mt-32 lg:mt-0 rounded-sm glass-shadow border border-neutral-100 w-full"
         >
           <div class="flex flex-col w-full px-2 md:px-8 gap-8">
             <div class="flex w-full justify-between">
               <h1 class="text-6xl tracking-tight text-neutral-950">About</h1>
-              <button
-                alt="Close"
-                @click="closeButtonClicked"
-                class="bg-[#b50938] text-white hover:bg-[#810032] size-14 my-auto rounded-full transition-all p-4"
-              >
-                <img
-                  src="../assets/close-menu.svg"
-                  alt="Search"
-                  class="h-full mx-auto my-auto object-contain rounded-l-sm"
-                />
-              </button>
             </div>
+            <button
+              alt="Close"
+              @click="closeButtonClicked"
+              class="bg-[#b50938] text-white hover:bg-[#810032] absolute top-4 right-4 size-14 my-auto rounded-full transition-all p-4"
+            >
+              <img
+                src="../assets/close-menu.svg"
+                alt="Search"
+                class="h-full mx-auto my-auto object-contain rounded-l-sm"
+              />
+            </button>
 
             <p class="text-lg text-neutral-950">
               This page was created by

@@ -49,7 +49,7 @@
   <nav
     class="flex z-10 justify-between lg:hidden text-black fixed w-full top-4 px-4 rounded-sm"
   >
-    <div class="bg-white flex w-full shadow-lg">
+    <div class="bg-white flex rounded-sm w-full shadow-lg">
       <a href="/">
         <img
           src="../assets/logo.svg"

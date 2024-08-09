@@ -1,92 +1,151 @@
 <template>
-  <div class="masonry-container p-8 relative">
-    <div v-for="artwork in artworks" :key="artwork.id" class="masonry-item">
-      <img
-        :src="artwork.image_url"
-        :alt="artwork.title"
-        v-if="artwork.image_url"
-      />
-      <h2>{{ artwork.title }}</h2>
-      <p>Artist: {{ artwork.artist_title }}</p>
+  <div class="masonry-container">
+    <div class="masonry-column" v-for="i in columnCount" :key="i">
+      <transition-group name="fade-slide-up" tag="div">
+        <div
+          v-for="artwork in getColumnArtworks(i)"
+          :key="artwork.id"
+          class="masonry-item"
+        >
+          <img
+            :src="artwork.image_url"
+            :alt="artwork.title"
+            v-if="artwork.image_url"
+          />
+          <div class="artwork-info">
+            <h2>{{ artwork.title }}</h2>
+            <p>Artist: {{ artwork.artist_title }}</p>
+          </div>
+        </div>
+      </transition-group>
     </div>
-
     <div ref="bottom" class="bottom-detector"></div>
   </div>
 </template>
-
 <script>
 export default {
   props: ["artworks"],
+  data() {
+    return {
+      columnCount: 3,
+      observer: null,
+    };
+  },
   mounted() {
+    this.updateColumnCount();
+    window.addEventListener("resize", this.updateColumnCount);
     this.setupInfiniteScroll();
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.updateColumnCount);
+    if (this.observer) {
+      this.observer.disconnect();
+    }
   },
   methods: {
     setupInfiniteScroll() {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
+      this.observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
             this.$emit("load-more");
           }
         },
         { rootMargin: "200px" }
       );
-      observer.observe(this.$refs.bottom);
+      this.$nextTick(() => {
+        if (this.$refs.bottom) {
+          this.observer.observe(this.$refs.bottom);
+        }
+      });
+    },
+    updateColumnCount() {
+      if (window.innerWidth >= 1200) {
+        this.columnCount = 3;
+      } else if (window.innerWidth >= 768) {
+        this.columnCount = 2;
+      } else {
+        this.columnCount = 1;
+      }
+    },
+    getColumnArtworks(columnIndex) {
+      return this.artworks.filter(
+        (_, index) => index % this.columnCount === columnIndex - 1
+      );
+    },
+  },
+  watch: {
+    artworks() {
+      this.$nextTick(this.setupInfiniteScroll);
     },
   },
 };
 </script>
+
 <style scoped>
 .masonry-container {
-  column-count: 3; /* Adjust based on your preferred layout */
-  column-gap: 3rem;
-  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  margin: -10px;
+  padding-left: 2rem;
+  padding-right: 2rem;
 }
 
-@media (max-width: 1200px) {
-  .masonry-container {
-    column-count: 3;
+.masonry-column {
+  flex: 1;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .masonry-column {
+    flex-basis: 50%;
   }
 }
 
-@media (max-width: 1100px) {
-  .masonry-container {
-    column-count: 2;
-  }
-}
-
-@media (max-width: 800px) {
-  .masonry-container {
-    column-count: 1;
+@media (min-width: 1200px) {
+  .masonry-column {
+    flex-basis: 33.333%;
   }
 }
 
 .masonry-item {
   break-inside: avoid;
   background: white;
+  padding-left: 4rem;
+  padding-top: 4rem;
+  padding-right: 4rem;
+  padding-bottom: 1rem;
   border-radius: 0px;
-  padding: 6rem;
-  margin-bottom: 3rem;
-  display: inline-block;
+  margin-bottom: 20px;
+  overflow: hidden;
+}
+
+.masonry-item img {
   width: 100%;
-  z-index: 1;
+  height: auto;
+  display: block;
 }
 
-@media (max-width: 1600px) {
-  .masonry-item {
-    padding: 4rem;
-    animation: fadeSlideUp 1.5s forwards;
-    animation-delay: 0s;
-  }
+.artwork-info {
+  padding: 1rem;
 }
 
-@media (max-width: 800px) {
-  .masonry-item {
-    padding: 2rem;
-    animation: fadeSlideUp 1.5s forwards;
-    animation-delay: 0s;
-    opacity: 0; /* Ensure initial state is set correctly */
-  }
+.masonry-item h2 {
+  font-size: 1em;
+  margin: 0 0 5px;
 }
+
+.masonry-item p {
+  font-size: 0.8em;
+  margin: 0;
+}
+
+.bottom-detector {
+  width: 100%;
+  height: 20px;
+  clear: both;
+}
+
 @keyframes fadeSlideUp {
   0% {
     opacity: 0;
@@ -98,23 +157,20 @@ export default {
   }
 }
 
-.masonry-item img {
-  width: 100%;
-  height: auto;
-  display: block;
+.fade-slide-up-enter-active,
+.fade-slide-up-leave-active {
+  transition:
+    opacity 0.5s ease,
+    transform 0.5s ease;
 }
 
-.masonry-item h2 {
-  font-size: 1em;
-  margin: 10px 0 5px;
+.fade-slide-up-enter-from,
+.fade-slide-up-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-.masonry-item p {
-  font-size: 0.8em;
-  margin: 0;
-}
-
-.bottom-detector {
-  height: 20px;
+.fade-slide-up-move {
+  transition: transform 0.5s ease;
 }
 </style>

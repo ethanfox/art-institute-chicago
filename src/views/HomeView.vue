@@ -27,8 +27,12 @@
       </div>
       <div v-else key="loaded" class="relative">
         <Navigation
-          @navigation-button-clicked="showSearchOverlay = !showSearchOverlay"
-          @about-button-clicked="showAboutOverlay = !showAboutOverlay"
+          @navigation-button-clicked="
+            (showSearchOverlay = !showSearchOverlay), (showAboutOverlay = false)
+          "
+          @about-button-clicked="
+            (showAboutOverlay = !showAboutOverlay), (showSearchOverlay = false)
+          "
         />
 
         <Gallery :artworks="artworks" @load-more="loadMoreArtworks" />
