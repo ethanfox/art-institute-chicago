@@ -2,7 +2,7 @@
   <div class="w-screen h-svh overflow-y-scroll bg-neutral-100">
     <transition mode="out-in" name="fade">
       <div
-        v-if="loading"
+        v-if="isFirstVisit"
         key="loading"
         class="w-screen h-screen gap-2 flex bg-[#b50938]"
       >
@@ -63,10 +63,11 @@ export default {
     };
   },
   setup() {
-    const number = ref(1);
+    let number = ref(1);
     const loading = ref(true);
     const artworks = ref([]);
     const page = ref(1);
+    const uniqueArtworkIds = new Set();
 
     const formattedNumber = computed(() => {
       if (number.value >= 100) {
@@ -95,13 +96,25 @@ export default {
     };
 
     onMounted(() => {
-      setTimeout(() => {
-        animateNumber(90, 2000);
-      }, 100);
+      const isFirstVisit = !localStorage.getItem("hasVisited");
 
-      setTimeout(() => {
-        animateNumber(100, 1000);
-      }, 2100);
+      if (isFirstVisit) {
+        console.log("First visit");
+        setTimeout(() => {
+          animateNumber(90, 2000);
+        }, 100);
+
+        setTimeout(() => {
+          animateNumber(100, 1000);
+        }, 2100);
+
+        setTimeout(() => {
+          localStorage.setItem("hasVisited", "true");
+          fetchArtworks();
+        }, 3000);
+      } else {
+        fetchArtworks();
+      }
     });
 
     const fetchArtworks = async () => {
@@ -118,10 +131,18 @@ export default {
           }
         );
 
-        const newArtworks = response.data.data.map((artwork) => ({
-          ...artwork,
-          image_url: `https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`,
-        }));
+        const newArtworks = response.data.data
+          .filter(
+            (artwork) => !uniqueArtworkIds.has(artwork.id) && artwork.image_id
+          )
+          .map((artwork) => {
+            uniqueArtworkIds.add(artwork.id);
+            return {
+              ...artwork,
+              image_url: `https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`,
+            };
+          });
+
         artworks.value = newArtworks;
         page.value++;
       } catch (error) {
@@ -146,10 +167,17 @@ export default {
           }
         );
 
-        const newArtworks = response.data.data.map((artwork) => ({
-          ...artwork,
-          image_url: `https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`,
-        }));
+        const newArtworks = response.data.data
+          .filter(
+            (artwork) => !uniqueArtworkIds.has(artwork.id) && artwork.image_id
+          )
+          .map((artwork) => {
+            uniqueArtworkIds.add(artwork.id);
+            return {
+              ...artwork,
+              image_url: `https://www.artic.edu/iiif/2/${artwork.image_id}/full/843,/0/default.jpg`,
+            };
+          });
 
         artworks.value = [...artworks.value, ...newArtworks];
         page.value++;
@@ -169,7 +197,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 /* ************************ */
 /* ************************ */

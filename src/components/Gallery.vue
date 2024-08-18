@@ -5,7 +5,8 @@
         <div
           v-for="artwork in getColumnArtworks(i)"
           :key="artwork.id"
-          class="masonry-item"
+          class="masonry-item hover:shadow-lg transition-all cursor-pointer"
+          @click="navigateToArtDetail(artwork.id)"
         >
           <img
             :src="artwork.image_url"
@@ -23,8 +24,19 @@
   </div>
 </template>
 <script>
+import { useRouter } from "vue-router";
 export default {
   props: ["artworks"],
+  setup() {
+    const router = useRouter();
+
+    const navigateToArtDetail = (artworkId) => {
+      console.log(artworkId);
+      router.push({ name: "ArtDetail", params: { id: artworkId } });
+    };
+
+    return { navigateToArtDetail };
+  },
   data() {
     return {
       columnCount: 3,
