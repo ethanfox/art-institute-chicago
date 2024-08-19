@@ -1,6 +1,6 @@
 # 🖼️ Art-Institute-Chicago
 
-## [Visit [In-Progress] Site](https://ethanfox.github.io/art-institute-chicago/)
+## [Visit Site](https://ethanfox.github.io/art-institute-chicago/)
 The goal of this project is to provide an immersive way to browse the works housed at the Art Institute Chicago.
 
 
@@ -15,8 +15,8 @@ The project makes use of:
 - [x] Connect to API and load images
 - [x] Loading animation when user first visits site
 - [x] Load-in animation for art
-- [ ] Detail view of art
-- [ ] Search & Filter
+- [x] Detail view of art
+- [x] Search & Filter
 
 ## To get started locally
 
