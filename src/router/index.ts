@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import ArtDetail from "@/views/ArtDetail.vue";
+
+import SearchResults from "../views/SearchResults.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -22,6 +23,11 @@ const router = createRouter({
       path: "/artwork/:id",
       name: "ArtDetail",
       component: () => import("@/views/ArtDetail.vue"),
+    },
+    {
+      path: "/search",
+      name: "SearchResults",
+      component: SearchResults,
     },
   ],
 });

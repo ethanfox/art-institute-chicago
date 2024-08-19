@@ -4,16 +4,29 @@
       <div
         class="bg-neutral-950/50 backdrop fixed inset-0 flex flex-col gap-8 items-center justify-center z-[10] sm:px-8 px-8 md:px-16 lg:px-32 xl:px-64"
       >
+        <button
+          alt="Close"
+          @click="closeButtonClicked"
+          class="bg-[#b50938] text-white hover:bg-[#810032] absolute top-4 right-4 size-14 my-auto rounded-full transition-all p-4"
+        >
+          <img
+            src="../assets/close-menu.svg"
+            alt="Search"
+            class="h-full mx-auto my-auto object-contain rounded-l-sm"
+          />
+        </button>
         <!-- SEARCH -->
         <form
+          @submit.prevent="navigateToSearchResults"
           class="flex gap-4 p-2 bg-white rounded-full glass-shadow border border-neutral-100 w-full"
         >
           <div class="flex flex-col w-full pl-8">
             <label for="search" class="text-sm text-neutral-950 font-semibold"
-              >Artwork</label
+              >Search Artworks</label
             >
             <input
-              placeholder="Search by name"
+              v-model="searchQuery"
+              placeholder="Search by name, artist, year, medium, or style"
               type="text"
               id="search"
               name="search"
@@ -32,19 +45,10 @@
             />
           </button>
         </form>
-        <!-- SEARCH -->
         <!-- EXHIBITIONS -->
         <div class="px-2 w-full">
           <ExhibitionBar :exhibitions="exhibitions" />
-          <!-- <div
-            class="flex gap-4 p-2 bg-white rounded-full glass-shadow border border-neutral-100 w-full"
-          >
-            <p for="search" class="text-sm text-neutral-950 font-semibold">
-              Current Exhibitions
-            </p>
-          </div> -->
         </div>
-        <!-- EXHIBITIONS -->
       </div>
     </div>
   </transition>
@@ -56,6 +60,7 @@ import axios from "axios";
 import ExhibitionBar from "./ExhibitionBar.vue";
 import "vue3-carousel/dist/carousel.css";
 import { Carousel, Slide, Pagination, Navigation } from "vue3-carousel";
+import { useRouter } from "vue-router";
 
 export default {
   components: {
@@ -68,10 +73,18 @@ export default {
   props: {
     showSearchOverlay: Boolean,
   },
+  methods: {
+    closeButtonClicked() {
+      this.$emit("close-button-clicked");
+    },
+  },
+
   setup(props) {
+    const router = useRouter();
     const exhibitionPage = ref(1);
     const loadingExhibitions = ref(true);
     const exhibitions = ref([]);
+    const searchQuery = ref("");
     const fetchExhibitions = async () => {
       loadingExhibitions.value = true;
       try {
@@ -117,6 +130,13 @@ export default {
       }
     };
 
+    const navigateToSearchResults = () => {
+      console.log("searchQuery.value", searchQuery.value);
+      if (searchQuery.value.trim()) {
+        router.push({ name: "SearchResults", query: { q: searchQuery.value } });
+      }
+    };
+
     watchEffect(() => {
       if (props.showSearchOverlay && exhibitions.value.length === 0) {
         fetchExhibitions();
@@ -127,6 +147,8 @@ export default {
     return {
       loadingExhibitions,
       exhibitions,
+      navigateToSearchResults,
+      searchQuery,
     };
   },
 };

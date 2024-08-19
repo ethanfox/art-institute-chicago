@@ -31,7 +31,6 @@ export default {
     const router = useRouter();
 
     const navigateToArtDetail = (artworkId) => {
-      console.log(artworkId);
       router.push({ name: "ArtDetail", params: { id: artworkId } });
     };
 

@@ -36,7 +36,10 @@
         />
 
         <Gallery :artworks="artworks" @load-more="loadMoreArtworks" />
-        <SearchOverlay :showSearchOverlay="showSearchOverlay" />
+        <SearchOverlay
+          :showSearchOverlay="showSearchOverlay"
+          @close-button-clicked="showSearchOverlay = !showSearchOverlay"
+        />
         <AboutOverlay
           @close-button-clicked="showAboutOverlay = !showAboutOverlay"
           :showAboutOverlay="showAboutOverlay"
