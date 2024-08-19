@@ -1,30 +1,70 @@
 <template>
-  <div class="artwork-detail" v-if="artwork">
-    <h1>{{ artwork.title }}</h1>
-    <img
-      :src="artwork.image_url"
-      :alt="artwork.title"
-      v-if="artwork.image_url"
-    />
-    <p>Artist: {{ artwork.artist_title }}</p>
-    <p>Date: {{ artwork.date_start }}</p>
-    <p>Origin: {{ artwork.place_of_origin }}</p>
-    <p>Artist Display: {{ artwork.artist_display }}</p>
-    <p>On Display: {{ artwork.is_on_view }}</p>
-    <div v-if="!artwork.on_loan_display">
-      <p>Gallery: {{ artwork.gallery_title }}, {{ artwork.gallery_id }}</p>
-    </div>
-    <div v-else v-html="artwork.on_loan_display"></div>
+  <div class="w-screen min-h-screen bg-neutral-100">
+    <div
+      class="artwork-detail bg-neutral-100 gap-16 flex flex-col p-12"
+      v-if="artwork"
+    >
+      <div class="w-full">
+        <button
+          alt="Close"
+          @click="goBack"
+          class="bg-white text-black hover:bg-neutral-200 glass-effect py-4 px-8 flex my-auto rounded-full transition-all p-4"
+        >
+          <img
+            src="../assets/Angle-left.svg"
+            alt="Back"
+            class="h-full size-6 mx-auto my-auto text-black object-contain rounded-l-sm"
+          />
+          <span class="my-auto"> Back </span>
+        </button>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+        <div class="col-span-1">
+          <img
+            class="bg-white p-16 glass-effect"
+            :src="artwork.image_url"
+            :alt="artwork.title"
+            v-if="artwork.image_url"
+          />
+        </div>
 
-    <p>Style: {{ artwork.style_title }}</p>
-    <p>Classification: {{ artwork.classification_title }}</p>
-    <p>Medium: {{ artwork.medium_display }}</p>
-    <p>Themes: {{ artwork.theme_titles }}</p>
-    <p>Techniques: {{ artwork.technique_titles }}</p>
-    <p>Inscription: {{ artwork.inscriptions }}</p>
-    <!-- Add more details as needed -->
+        <div class="flex flex-col gap-4">
+          <p class="text-xl font-semibold">
+            {{ artwork.is_on_view ? "Currently on Display" : "Not on Display" }}
+          </p>
+          <h1 class="text-6xl tracking-tight">
+            {{ artwork.title }}
+          </h1>
+
+          <p class="text-2xl">Artist: {{ artwork.artist_display }}</p>
+          <div class="grid grid-cols-3">
+            <p class="text-lg">Date: {{ artwork.date_start }}</p>
+            <p>Origin: {{ artwork.place_of_origin }}</p>
+          </div>
+
+          <div v-if="artwork.is_on_view">
+            <p>
+              Gallery: {{ artwork.gallery_title }}, {{ artwork.gallery_id }}
+            </p>
+          </div>
+          <div
+            v-if="artwork.on_loan_display"
+            v-html="artwork.on_loan_display"
+          ></div>
+
+          <div v-if="artwork.style_title">
+            <p>Style: {{ artwork.style_title }}</p>
+          </div>
+
+          <p>Classification: {{ artwork.classification_title }}</p>
+          <p>Medium: {{ artwork.medium_display }}</p>
+        </div>
+      </div>
+
+      <!-- Add more details as needed -->
+    </div>
+    <div v-else>Loading...</div>
   </div>
-  <div v-else>Loading...</div>
 </template>
 
 <script>
@@ -35,6 +75,12 @@ export default {
     return {
       artwork: null,
     };
+  },
+  setup() {
+    const goBack = () => {
+      window.history.back();
+    };
+    return { goBack };
   },
   created() {
     // Fetch artwork details using the ID from the route
